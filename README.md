@@ -25,6 +25,34 @@ output
 open_class.rb:5 found open class `String'
 ```
 
+If OpenClassAlarm#enable given block, automatically be disabled when the block terminates.
+
+```ruby
+require 'open_class_alarm'
+
+OpenClassAlarm.enable do
+  class String
+  end
+end
+
+class Hash
+end
+```
+
+it same
+
+```ruby
+require 'open_class_alarm'
+
+OpenClassAlarm.enable
+class String
+end
+OpenClassAlarm.disable
+
+class Hash
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
